@@ -8,7 +8,7 @@ Introduction
 ------------
 [Read more about firestore Database](https://firebase.google.com/docs/firestore/quickstart)
 [Read more about reference/js/v8/](https://firebase.google.com/docs/reference/js/v8/firebase.firestore.Firestore)
-[Read more about get-data/js/v8/](https://firebase.google.com/docs/firestore/query-data/get-data)
+[Read more about get-data](https://firebase.google.com/docs/firestore/query-data/get-data)
 Getting Started
 ---------------
  1. Create your project on the [Firestore Console](https://console.firebase.google.com).
