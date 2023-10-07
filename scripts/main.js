@@ -37,20 +37,8 @@ var listeningFirebaseRefs = [];
  * Saves a new post to the Firebase DB.
  */
    // Your web app's Firebase configuration
-   var firebaseConfig = {
-   apiKey: "AIzaSyB2JLINlRlWjTBfhBhYQmNf2gS3LfIgt60",
-   authDomain: "solutions-dashbord.firebaseapp.com",
-   projectId: "solutions-dashbord",
-   storageBucket: "solutions-dashbord.appspot.com",
-   messagingSenderId: "377030796238",
-   appId: "1:377030796238:web:ebbcb338a0c8e06184419f",
-   measurementId: "G-7S6F14QQCW"
-   };
-   // Initialize Firebase
- const app = firebase.initializeApp(firebaseConfig);
  const firestore = firebase.firestore();
  firebase.analytics();
-
 
 function writeNewPost(uid, username, picture, title, body) {
   // A post entry.
@@ -368,7 +356,6 @@ function cleanupUi() {
   listeningFirebaseRefs.forEach(function(ref) {
       // Display the splash page where you can sign-in.
       splashPage.style.display = '';
- //   ref.off();
   });
   listeningFirebaseRefs = [];
 }
