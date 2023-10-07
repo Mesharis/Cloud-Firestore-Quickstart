@@ -1,119 +1,303 @@
 <!DOCTYPE html>
 <!--
-Copyright (c) 2016 Google Inc.
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
 -->
-<html>
+<html lang="en">
 <head>
-  <meta charset=utf-8 />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Demonstrates the use of Google Firestore Database with a Firebase DB">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Omni Inc</title>
-
-  <!-- Material Design Theming -->
-  <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.orange-indigo.min.css">
+  <title>Cloud Firestore Quickstart</title>
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Firestore">
+  <meta name="theme-color" content="#343a40">
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Firestore">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#343a40">
+  <link rel="apple-touch-icon" href="firebase-logo.png">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="firebase-logo.png"/>
+  <!-- Tile icon for Win8 -->
+  <meta name="msapplication-TileColor" content="#3372DF">
+  <meta name="msapplication-navbutton-color" content="#343a40">
+  <!-- Material Design Lite -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
-
-  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.blue_grey-orange.min.css">
+  <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+  <link rel="stylesheet" href="scripts/main.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="scripts/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="scripts/adminlte.min.css">
 </head>
-<body>
+<body class="hold-transition sidebar-mini">
+<!-- Splash screen -->
+<section id="page-splash">
+  <h3 class="logo">Firestore</h3>
+  <div>
+    <button id="sign-in-button" class="mdl-button--raised mdl-button mdl-js-button mdl-js-ripple-effect"><i class="material-icons">account_circle</i> Sign in with Google</button>
+  </div>
+</section>
+<!-- ./wrapper -->
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" class="nav-link">Users</a>
+      </li>
+    </ul>
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Messages Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-comments"></i>
+          <span class="badge badge-danger navbar-badge">3</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="firebase-logo.png" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Frank
+                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">Call me whenever you can...</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="firebase-logo.png" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  John Pierce
+                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">I got your message bro</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="firebase-logo.png" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Janus
+                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">The subject goes here</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+        </div>
+      </li>
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-bell"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-header">15 Notifications</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i> 4 new messages
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-users mr-2"></i> 8 friend requests
+            <span class="float-right text-muted text-sm">12 hours</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-file mr-2"></i> 3 new reports
+            <span class="float-right text-muted text-sm">2 days</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+        </div>
+      </li>
+      <!-- fullscreen Menu -->
+      <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li>
+      <!-- Sign out Menu -->
+      <button id="sign-out-button" class="mdl-button--raised mdl-button mdl-js-button mdl-js-ripple-effect"><i class="material-icons">account_circle</i> Sign out</button>
+    </ul>
+  </nav>
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+      <img src="firebase-logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">Firestore</span>
+    </a>
 
-  <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <!-- Header section containing title -->
-    <header class="mdl-layout__header mdl-color-text--white mdl-color--light-blue-700">
-      <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
-        <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--8-col-desktop">
-          <h3>Omni Inc</h3>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="firebase-logo.png" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">TEST MODE</a>
         </div>
       </div>
-    </header>
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class   with font-awesome or any other icon font library -->
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Dashboard Starter
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <div id="menu-recent" class="mdl-layout__tab is-active mdl-button mdl-js-button mdl-js-ripple-effect">
+                <i class="material-icons">new_releases</i> Recent</div>
 
+              <div id="menu-my-posts" class="mdl-layout__tab mdl-button mdl-js-button mdl-js-ripple-effect">
+                <i class="material-icons">home</i> My posts</div>
+
+              <div id="menu-my-top-posts" class="mdl-layout__tab mdl-button mdl-js-button mdl-js-ripple-effect">
+                <i class="material-icons">trending_up</i> My top posts</div>
+            </ul>
+          </li>
+          <button class="mdl-button mdl-js-button mdl-button--fab mdl-color--amber-400 mdl-shadow--4dp mdl-js-ripple-effect" id="add">
+            <i class="material-icons">mode_edit</i>
+          </button>
+
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Cloud Firestore Quickstart</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="https://github.com/Mesharis/Cloud-Firestore-Quickstart">Github</a></li>
+              <li class="breadcrumb-item active">Meshari Suliman</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.home -->
     <main class="mdl-layout__content mdl-color--grey-100">
-      <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
+      <!-- Show the add post form -->
+      <section class="mdl-grid content" id="add-post" style="display:none">
+        <div class="mdl-cell mdl-cell--12-col mdl-grid">
 
-        <!-- Container for the demo -->
-        <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
-          <div class="mdl-card__title mdl-color--light-blue-600 mdl-color-text--white">
-            <h2 class="mdl-card__title-text">Upload a file</h2>
-          </div>
-          <div class="mdl-card__supporting-text mdl-color-text--grey-600" id="messagesDiv">
-            <p>Select a file below. When it is uploaded, a link will be displayed to the uploaded file.</p>
-            <h6>Choose File</h6>
-            <input type="file" id="file" name="file"/>
-            <h6>File URL:</h6>
-            <span id="linkbox"></span>
+          <!-- Card containing the inputs to add a new messages -->
+          <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet
+                  mdl-cell--6-col-desktop">
+            <div class="mdl-card__title mdl-color-text--white" style="background-color:#343a40">
+              <h2 class="mdl-card__title-text">New Post</h2>
+            </div>
+            <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+              <form id="message-form" action="#">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="text" id="new-post-title">
+                  <label class="mdl-textfield__label" for="new-post-title">Post title...</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <textarea class="mdl-textfield__input" rows="3" id="new-post-message"></textarea>
+                  <label class="mdl-textfield__label" for="new-post-message">Post message...</label>
+                </div>
+                <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                  Add post
+                </button>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
+      <!-- Show a list of recent posts -->
+      <section class="mdl-grid content" id="recent-posts-list" style="display:none">
+        <div class="posts-container mdl-cell mdl-cell--12-col mdl-grid">
+        </div>
+      </section>
+      <!-- Show the list of user's posts -->
+      <section class="mdl-grid content" id="user-posts-list" style="display:none">
+        <div class="posts-container mdl-cell mdl-cell--12-col mdl-grid">
+        </div>
+      </section>
+      <!-- Show the list of top user's posts -->
+      <section class="mdl-grid content" id="top-user-posts-list" style="display:none">
+        <div class="posts-container mdl-cell mdl-cell--12-col mdl-grid">
+        </div>
+      </section>
     </main>
   </div>
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="float-right d-none d-sm-inline">
+      Fly MODE
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2006-2023 <a href="https://mesharis.github.io/">dashboard</a>.</strong> All rights reserved.
+  </footer>
+</div>
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/bootstrap.bundle.min.js"></script>
+<script src="scripts/adminlte.min.js"></script>
 
-  <!-- Import and configure the Firebase SDK -->
-  <!-- These scripts are made available when the app is served or deployed on Firebase Hosting -->
-  <!-- If you do not serve/host your project using Firebase Hosting see https://firebase.google.com/docs/web/setup -->
-  <script src="/__/firebase/8.3.1/firebase-app.js"></script>
-  <script src="/__/firebase/8.3.1/firebase-auth.js"></script>
-  <script src="/__/firebase/8.3.1/firebase-storage.js"></script>
-  <script src="/__/firebase/init.js"></script>
-
-  <script>
-    var auth = firebase.auth();
-    var storageRef = firebase.storage().ref();
-
-    function handleFileSelect(evt) {
-      evt.stopPropagation();
-      evt.preventDefault();
-      var file = evt.target.files[0];
-
-      var metadata = {
-        'contentType': file.type
-      };
-
-      // Push to child path.
-      storageRef.child('images/' + file.name).put(file, metadata).then(function(snapshot) {
-        console.log('Uploaded', snapshot.totalBytes, 'bytes.');
-        console.log('File metadata:', snapshot.metadata);
-        // Let's get a download URL for the file.
-        snapshot.ref.getDownloadURL().then(function(url) {
-          console.log('File available at', url);
-          document.getElementById('linkbox').innerHTML = '<a href="' +  url + '">Click For File</a>';
-        });
-      }).catch(function(error) {
-        console.error('Upload failed:', error);
-      });
-    }
-
-    window.onload = function() {
-      document.getElementById('file').addEventListener('change', handleFileSelect, false);
-      document.getElementById('file').disabled = true;
-
-      auth.onAuthStateChanged(function(user) {
-        if (user) {
-          console.log('Anonymous user signed-in.', user);
-          document.getElementById('file').disabled = false;
-        } else {
-          console.log('There was no anonymous session. Creating a new anonymous user.');
-          // Sign the user in anonymously since accessing Storage requires the user to be authorized.
-          auth.signInAnonymously().catch(function(error) {
-            if (error.code === 'auth/operation-not-allowed') {
-              window.alert('Anonymous Sign-in failed. Please make sure that you have enabled anonymous ' +
-                  'sign-in on your Firebase project.');
-            }
-          });
-        }
-      });
-    }
-  </script>
+<script src="/__/firebase/9.22.1/firebase-app-compat.js"></script>
+<script src="/__/firebase/9.22.1/firebase-auth-compat.js"></script>
+<script src="/__/firebase/9.22.1/firebase-firestore-compat.js"></script>
+<script src="/__/firebase/8.10.0/firebase-analytics.js"></script>
+<script src="/__/firebase/init.js?useEmulator=false"></script>
+<script src="scripts/main.js"></script>
 </body>
 </html>
