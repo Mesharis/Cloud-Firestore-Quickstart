@@ -1,6 +1,6 @@
 Cloud Firestore Realtime Quickstart
 
-[DEMO](https://solutions-dashbord.web.app/#)
+[DEMO](https://dashboard-quickstart.web.app/)
 =============================
 The Firestore Database quickstart demonstrates how to connect to the Firestore Realtime Database and
 to send and retrieve data through a simple social blogging app. It will interoperate with the iOS and
